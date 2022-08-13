@@ -26,7 +26,6 @@ function Login() {
   const {userData,setUserData} = useContext(MyContext) // getting setUser from usercontext
   const navigate = useNavigate();
 
-  console.log("myyyyyyyycccctxt");
   //email validation
 
   // eslint-disable-next-line
@@ -117,8 +116,9 @@ function Login() {
         <Button variant="contained" disabled={!email || !password || !hasEmail} onClick={handleLogin}>
           Login
         </Button>
-        <Link to={'/signup'}>
-          <Button variant="outlined">Signup</Button>
+        
+        <Link to={'/signup'}  style={{ color: '#FFF' }}>
+          <Button variant="text">New user ? Signup</Button>
         </Link>
       </div>
     </div>

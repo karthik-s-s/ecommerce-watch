@@ -224,7 +224,7 @@ export default function UserHeader() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            THE WATCHES
           </Typography>
           <Search>
             <SearchIconWrapper>

@@ -71,12 +71,8 @@ export const getLogout = async () => {
     return await axios.get(`${process.env.REACT_APP_API_URL}/logout`, {
       withCredentials: true,
     }).then((res)=>{
-      console.log(res);
-      console.log("gggggggggggggg");
       return res.data;
     }).catch((res)=>{
-      console.log("blahhhhhhhhhh");
-      console.log(res);
       return res.response.data;
     })
    

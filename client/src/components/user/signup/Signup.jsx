@@ -302,8 +302,8 @@ function Signup() {
         >
           Signup
         </Button>
-        <Link to={'/login'}>
-          <Button variant="outlined">Login</Button>
+        <Link to={'/login'}  style={{ color: '#FFF' }}>
+          <Button variant="text">Already registered ? Login</Button>
         </Link>
       </div>
       {openModal && <OtpModal onAction={handleClose} num={number}  onVerification={handleVerification}/>}

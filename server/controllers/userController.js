@@ -20,24 +20,22 @@ module.exports = {
         return res.status(409).json({ error: 'User already exists' });
       }
       console.log(req.body.number);
-      // make(req.body.number).then((verification) => {
-      // console.log(verification);
+      make(req.body.number).then((verification) => {
+      console.log(verification);
         return res.status(200).json({ message: 'Verification successful' });
-      // });
+      });
     } catch (error) {
       return res.status(403).json({ error: error.message });
     }
   },
   otpVerify: async (req, res) => {
     try {
-      console.log(req.body);
-      console.log('kkkkkkkkkkkkkk'.bgGreen);
       const otp = req.body.otp;
       const number = req.body.number;
-      // await verifyOtp(otp, number).then((responce) => {
-        // console.log(responce);
+      await verifyOtp(otp, number).then((responce) => {
+        console.log(responce);
         return res.status(200).json({ message: 'Successfully verified' });
-      // });
+      });
     } catch (error) {
       console.log(error);
       return res.status(403).json({ error });
