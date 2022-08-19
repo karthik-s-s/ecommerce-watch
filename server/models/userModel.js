@@ -17,6 +17,9 @@ const User = new mongoose.Schema(
       type: String,
       required: true,
     },
+    status: { type: Number, required: true} 
+
+    
   },
   { collection: 'users' }
 );

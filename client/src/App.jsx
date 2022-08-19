@@ -7,6 +7,8 @@ import SignUpPage from './pages/user/SignUpPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import OtpModal from './components/user/verifyOtp/OtpModal';
+import AhomePage from './pages/admin/AhomePage';
+import AusersPage from './pages/admin/AusersPage';
 // import user context from src
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
+    <div className="App" >
       {/* // pass value // so user and setUser will be availabe in all components step(4) */}
         <ToastContainer />
         
@@ -33,7 +35,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/otpModal" element={<OtpModal/>} />
+          {/* <Route path="/otpModal" element={<OtpModal/>} /> */}
+          {/* admin routes */}
+          <Route path="/admin/home" element={<AhomePage/>} />
+          <Route path="/admin/users" element={<AusersPage/>} />
         </Routes>
           
         

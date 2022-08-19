@@ -31,8 +31,10 @@ app.use(expressValidator());
 // const testRouters = require("./routes/test"); // test routes in testrouter
 // app.use("/", testRouters);
 const userRouters = require("./routes/userRoute");
+const adminRouters = require("./routes/adminRoute");
 
 app.use('/',userRouters)
+app.use('/admin',adminRouters)
 
 
 // ports

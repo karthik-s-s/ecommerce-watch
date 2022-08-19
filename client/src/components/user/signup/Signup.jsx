@@ -160,7 +160,8 @@ function Signup() {
           sx={{ mt: 2 }}
           variant="outlined"
           onClick={handleVerifyNumber}
-          disabled={isVerified}
+          disabled={isVerified|| !email ||
+            !number}
         >
           Verify Number
         </Button>
@@ -295,7 +296,8 @@ function Signup() {
             !hasEmail ||
             !confirmPassword ||
             !userName ||
-            !number||
+            !number
+            ||
             !isVerified
           }
           onClick={handleSignup} 

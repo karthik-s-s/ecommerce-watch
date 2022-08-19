@@ -4,7 +4,7 @@ import { Box, Typography ,Button} from '@mui/material';
 import SwiperCore, { Autoplay, EffectCoverflow, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
-import 'swiper/swiper.min.css';
+// import 'swiper/swiper.min.css';
 import './Home.css';
 
 SwiperCore.use([EffectCoverflow, Autoplay, Pagination]);
@@ -40,7 +40,7 @@ export default () => {
           modifier: 1,
           slideShadows: false,
         }}
-        pagination={true}
+        pagination={false}
         className="mySwiper"
       >
         {/* using array */}

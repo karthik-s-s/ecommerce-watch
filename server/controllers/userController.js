@@ -34,7 +34,7 @@ module.exports = {
       const number = req.body.number;
       await verifyOtp(otp, number).then((responce) => {
         console.log(responce);
-        return res.status(200).json({ message: 'Successfully verified' });
+      return res.status(200).json({ responce });
       });
     } catch (error) {
       console.log(error);
@@ -58,6 +58,7 @@ module.exports = {
         email: req.body.email,
         number: req.body.number,
         password: hashedPassword,
+        status: true
       });
 
       return res
@@ -74,7 +75,7 @@ module.exports = {
   login: async (req, res) => {
     const { email, password } = req.body;
     // check email
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email ,status:1});
     if (!user) {
       return res.status(401).json({ error: 'Invalid Email' });
     }
@@ -96,6 +97,7 @@ module.exports = {
     return res.json({
       message: 'Login successfull',
       user,
+      accessToken: token
     });
   },
   logout: (req, res) => {

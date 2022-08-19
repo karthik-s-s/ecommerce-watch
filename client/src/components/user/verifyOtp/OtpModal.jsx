@@ -71,15 +71,14 @@ function OtpModal(props) {
     (e).preventDefault();
     try{
       const res = await postVerifyOtp (otp,props.num);
-    if(res.status === 200){
-        //close modal with alert
-        // setIsVerified(true)
-        props.onVerification()
+      console.log(res);
+    if(res === 'approved'){
+      props.onVerification()
       handleClose();
-      toast.success(res.data.message);
+      toast.success("Number Verified");
       
     }else{
-      toast.error(res.error)  
+      toast.error("Not Verified");  
     }
     }catch(error){
       console.log(error);

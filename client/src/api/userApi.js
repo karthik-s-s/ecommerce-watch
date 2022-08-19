@@ -110,7 +110,7 @@ export const postVerifyOtp = async (otp,number) => {
   return await axios.post(`${process.env.REACT_APP_API_URL}/verifyOtp`,verifyOtp).then((res)=>{
     console.log(res);
     console.log("aaaaaaaa");
-    return res;   
+    return res.data.responce.status;   
   }).catch((res)=>{
     console.log("errorrrr");
     console.log(res);
