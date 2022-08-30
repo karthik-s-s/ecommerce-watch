@@ -18,7 +18,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 //api
-import { getLogout } from '../../../api/userApi';
+import { getCheckRefreshToken, getLoggedIn, getLogout } from '../../../api/userApi';
 import { useContext } from 'react';
 import { toast } from 'react-toastify';
 import {MyContext} from '../../../UserContext'
@@ -64,6 +64,47 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function UserHeader() {
+ const [userDetails, setUserDetails] = React.useState({})
+
+  React.useEffect(() => {
+ 
+    handleCheckUserLoggedIn()
+  }, [])
+  
+  const handleCheckUserLoggedIn = async () =>{
+    try{
+      const res = await getLoggedIn();
+      console.log(res);
+      if(res.status=== 403||400){
+        //no access token
+        //check refresh token
+        //
+        console.log("blajjjjjjjjjjjjjjjjjjjjjjjj");
+        const res = await getCheckRefreshToken();
+        console.log(res);
+        if(res.status === 200){
+          //put user
+          console.log(res);
+                  //put user data to redux
+
+          setUserDetails(res.data)
+
+        }else{
+          //normal header
+        }
+        
+
+      }else if(res.status === 200){
+        //put user data to redux
+        setUserDetails(res.data.userDetails)
+
+      }
+    }catch (error){
+      console.log("erroeee");
+      console.log(error);
+    }
+  }
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 

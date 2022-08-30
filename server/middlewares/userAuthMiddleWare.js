@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 // eslint-disable-next-line consistent-return
 exports.verifyToken = (req,res,next)=>{
+    console.log(req.cookies.jwt);
     const accessToken = req.cookies.jwt; // name of token
 
     // if there is no token in the cookies , req is unauthorized

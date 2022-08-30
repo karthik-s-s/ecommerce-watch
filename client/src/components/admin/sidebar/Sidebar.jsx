@@ -17,8 +17,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-
+import PeopleAltSharpIcon from '@mui/icons-material/PeopleAltSharp';
+import DashboardSharpIcon from '@mui/icons-material/DashboardSharp';
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -70,6 +71,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 export default function Sidebar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
 
   const handleDrawerOpen = () => {
@@ -125,19 +127,19 @@ export default function Sidebar() {
         <Divider />
         <List>
             <ListItem  disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={()=>navigate('/admin/home')}>
                 <ListItemIcon>
-                <InboxIcon />
+               <DashboardSharpIcon/>
                 </ListItemIcon>
                 <ListItemText primary='Dashboard' />
               </ListItemButton>
             </ListItem>
             <ListItem  disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={()=>navigate('/admin/users')}>
                 <ListItemIcon>
-                <InboxIcon />
+                <PeopleAltSharpIcon/>
                 </ListItemIcon>
-                <ListItemText primary='Dashboard' />
+                <ListItemText primary='Users' />
               </ListItemButton>
             </ListItem>
             <ListItem  disablePadding>

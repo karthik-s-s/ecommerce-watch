@@ -13,7 +13,7 @@ import { Button } from '@mui/material';
 export default function Users() {
   const [status, setStatus] = React.useState(true);
   const columns = [
-    { field: 'id', headerName: 'ID', width: 90 },
+    // { field: 'id', headerName: 'ID', width: 90 },
     {
       field: 'name',
       headerName: 'Name',

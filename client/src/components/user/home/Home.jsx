@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography ,Button} from '@mui/material';
 //swiper
 import SwiperCore, { Autoplay, EffectCoverflow, Pagination } from 'swiper';
@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 // import 'swiper/swiper.min.css';
 import './Home.css';
-
+// import {  getLoggedIn} from "../../../api/userApi";
+import { useNavigate } from "react-router-dom";
 SwiperCore.use([EffectCoverflow, Autoplay, Pagination]);
 const slide_img = [
   'https://img.freepik.com/premium-psd/watch-promotion-social-media-banner-template_229256-76.jpg?size=338&ext=jpg&ga=GA1.2.1755782096.1660159902',
@@ -21,6 +22,9 @@ const slide_img = [
 ];
 
 export default () => {
+  const navigate =  useNavigate()
+
+
   return (
     <>
     <div className="main-swiper">
@@ -139,7 +143,7 @@ export default () => {
           when you are forever young.
         </Typography>
         <div style={{backgroundImage: 'url(https://c4.wallpaperflare.com/wallpaper/116/423/763/clock-detail-jewelry-luxury-wallpaper-preview.jpg)'}} className='my-4 p-5' >
-          <Button sx={{width:'60%',m:5,p:5,fontWeight:'bold'}} variant="outlined">Explore Watches</Button>
+          <Button onClick={()=>navigate('/products')} sx={{width:'60%',m:5,p:5,fontWeight:'bold'}} variant="outlined">Explore Watches</Button>
         </div>
       </Box>
 

@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/user/HomePage';
@@ -6,9 +5,9 @@ import LoginPage from './pages/user/LoginPage';
 import SignUpPage from './pages/user/SignUpPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import OtpModal from './components/user/verifyOtp/OtpModal';
 import AhomePage from './pages/admin/AhomePage';
 import AusersPage from './pages/admin/AusersPage';
+import ProductPage from './pages/user/ProductPage';
 // import user context from src
 
 function App() {
@@ -35,6 +34,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/products" element={<ProductPage />} />
           {/* <Route path="/otpModal" element={<OtpModal/>} /> */}
           {/* admin routes */}
           <Route path="/admin/home" element={<AhomePage/>} />

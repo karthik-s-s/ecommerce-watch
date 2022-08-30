@@ -80,12 +80,16 @@ export const getLogout = async () => {
 };
 export const getLoggedIn = async () => {
   try {
+    console.log("getttttt");
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/login`, {
-      credentials: 'include',
+      withCredentials: true,
     });
+    console.log(res);
     return res;
-  } catch (err) {
-    throw new Error(`Please login to continue`);
+  } catch (res) {
+    console.log(res);
+    console.log("errrrrrrrrrrrrrrrrrrrrrr");
+    return res.response;
   }
 };
 
@@ -116,4 +120,14 @@ export const postVerifyOtp = async (otp,number) => {
     console.log(res);
     return res.responce.data
   });
+}
+
+export const getCheckRefreshToken = async ()=>{
+  return await axios.get(`${process.env.REACT_APP_API_URL}/token`,{
+    withCredentials: true
+  }).then((res)=>{
+    return res
+  }).catch((res)=>{
+    return res;
+  })
 }

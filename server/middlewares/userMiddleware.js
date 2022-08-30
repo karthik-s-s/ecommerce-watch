@@ -39,13 +39,17 @@ exports.userRegisterValidator = (req, res, next) => {
  
 };
 
-exports.userById = async (req, res, next) => {
+exports.userById = async (req, res, next) => 
+{
+  console.log(req._id)
+  console.log("reqqqqqq");
   User.findById(req._id).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({ error: 'User not found' });
     }
     // add user object in req with all user info
     req.user = user;
+    console.log(req.user);
     next();
   });
 };
